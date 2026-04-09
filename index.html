@@ -66,12 +66,17 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.45rem;
-            color: var(--ink);
+            display: inline-flex;
+            align-items: center;
             text-decoration: none;
-            flex-shrink: 0;
-            letter-spacing: -.01em
+            flex-shrink: 0
+        }
+
+        .logo-img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+            display: block
         }
 
         .logo span {
@@ -717,7 +722,7 @@
     <!-- ══ TOPBAR ══════════════════════════════════════════════════ -->
     <header class="topbar">
         <div class="topbar-inner">
-            <a href="#" class="logo">Tai<span>gus</span></a>
+            <a href="#" class="logo"><img src="assets/81Qi3v3t.jpg" alt="Taigus logo" class="logo-img"></a>
             <div class="search-wrap">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
