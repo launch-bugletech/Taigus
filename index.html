@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Taigus — Design System</title>
+    <title>Design System for Taigus</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -811,6 +811,20 @@
         let activeCategory = "All";
         let searchQuery = "";
 
+        /* ── Lazy Loading Observer ── */
+        const lazyObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const iframe = entry.target.querySelector('.lazy-iframe');
+                    if (iframe && iframe.dataset.src) {
+                        iframe.src = iframe.dataset.src;
+                        iframe.removeAttribute('data-src');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '150px 0px' });
+
         /* ════════════════════════════════════════════════════════════
            RENDER — filter pills
            ════════════════════════════════════════════════════════════ */
@@ -868,7 +882,7 @@
                 card.style.animationDelay = `${i * 0.045}s`;
                 card.innerHTML = `
         <div class="prev-wrap">
-                    <iframe src="${pageUrl}" class="prev-iframe" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+                    <iframe data-src="${pageUrl}" class="prev-iframe lazy-iframe" scrolling="no" tabindex="-1"></iframe>
           <div class="prev-overlay">
                         <a href="${pageUrl}" class="ov-btn" target="_blank">
               <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -894,6 +908,7 @@
           </div>
         </div>`;
                 container.appendChild(card);
+                lazyObserver.observe(card);
             });
         }
 
@@ -911,9 +926,62 @@
             setTimeout(() => el.classList.remove("show"), 3800);
         }
 
+        /* ── AUTO-FETCH DESIGNS ── */
+        async function fetchDynamicDesigns() {
+            try {
+                const cache = sessionStorage.getItem("gh_designs_cache");
+                if (cache) {
+                    mergeDesigns(JSON.parse(cache));
+                    return;
+                }
+                const res = await fetch(`https://api.github.com/repos/${REPO}/git/trees/${BRANCH}?recursive=1`);
+                if (!res.ok) return;
+                const data = await res.json();
+                
+                // Keep only HTML files inside the "designs" directory
+                const htmlFiles = data.tree.filter(t => t.path.startsWith("designs/") && t.path.endsWith(".html"));
+                
+                const newDesigns = htmlFiles.map(file => {
+                    const parts = file.path.split("/");
+                    // Category is typically the folder instantly inside designs/
+                    const category = parts[1] ? parts[1].replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()) : "Other";
+                    const title = parts[parts.length - 1].replace(".html", "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
+                    
+                    return {
+                        url: file.path, 
+                        title: title, 
+                        category: category, 
+                        badge: category,
+                        description: `Auto-discovered: ${file.path}`
+                    };
+                });
+                
+                sessionStorage.setItem("gh_designs_cache", JSON.stringify(newDesigns));
+                mergeDesigns(newDesigns);
+            } catch (err) {
+                console.warn("Auto-fetch failed:", err);
+            }
+        }
+
+        function mergeDesigns(autoDesigns) {
+            const existing = new Set(BASE.map(d => d.url));
+            let added = false;
+            for (let d of autoDesigns) {
+                if (!existing.has(d.url)) {
+                    BASE.push(d);
+                    added = true;
+                }
+            }
+            if (added) {
+                renderPills();
+                renderGrid();
+            }
+        }
+
         /* ── INIT ── */
         renderPills();
         renderGrid();
+        fetchDynamicDesigns();
     </script>
 </body>
 
