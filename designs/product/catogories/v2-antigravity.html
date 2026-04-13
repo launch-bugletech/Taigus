@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our IML Product Range | Taigus</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Colors */
+            --accent-coral: #F4845F;
+            --accent-blue: #378ADD;
+            --accent-purple: #9F60B5;
+            --accent-amber: #BA7517;
+
+            --bg-body: #FDF6EE;
+            --bg-cta: #FDF0E6;
+            --bg-card: #FFFFFF;
+            --bg-secondary: #F7F5F2;
+            /* light gray/off-white */
+
+            --text-dark: #1A1A1A;
+            --text-muted: #5E5E5E;
+            --border-color: #EFEFEF;
+
+            /* Tags */
+            --tag-green-bg: #E6F4EA;
+            --tag-green-text: #188038;
+            --tag-coral-bg: #FDEDE8;
+            --tag-coral-text: #D95D36;
+            --tag-blue-bg: #EAF2FB;
+            --tag-blue-text: #1967D2;
+            --tag-amber-bg: #FEF3DD;
+            --tag-amber-text: #B06000;
+            --tag-purple-bg: #F5EBF8;
+            --tag-purple-text: #82479B;
+
+            /* Radii */
+            --radius-pill: 99px;
+            --radius-card: 12px;
+
+            /* Shadows */
+            --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
+
+            /* Typography */
+            --font-main: 'Inter', sans-serif;
+        }
+
+        /* RESET & GLOBAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* TYPOGRAPHY */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-weight: 300;
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .eyebrow {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            color: var(--accent-coral);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* LAYOUT & SECTIONS */
+        section {
+            padding: 80px 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-coral);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #E26E4A;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-coral);
+            border-color: var(--accent-coral);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--tag-coral-bg);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-group.center {
+            justify-content: center;
+        }
+
+        /* TAGS */
+        .tag-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag-group.center {
+            justify-content: center;
+        }
+
+        .tag {
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tag-green {
+            background: var(--tag-green-bg);
+            color: var(--tag-green-text);
+        }
+
+        .tag-coral {
+            background: var(--tag-coral-bg);
+            color: var(--tag-coral-text);
+        }
+
+        .tag-blue {
+            background: var(--tag-blue-bg);
+            color: var(--tag-blue-text);
+        }
+
+        .tag-amber {
+            background: var(--tag-amber-bg);
+            color: var(--tag-amber-text);
+        }
+
+        .tag-purple {
+            background: var(--tag-purple-bg);
+            color: var(--tag-purple-text);
+        }
+
+        .tag-gray {
+            background: #F0F0F0;
+            color: #555;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            transition: box-shadow 0.3s ease;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* SECTION 1 - HERO BANNER */
+        .hero {
+            background: linear-gradient(135deg, #FDF6EE 0%, #FEF0E6 100%);
+            padding: 100px 24px;
+            text-align: center;
+        }
+
+        .hero p.subheadline {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: var(--text-dark);
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+
+        .hero p.supporting {
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* SECTION 2 - CATEGORY FILTER */
+        .filter-nav {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--accent-coral);
+            color: white;
+            border-color: var(--accent-coral);
+        }
+
+        /* SECTION 3 - PRODUCT GRID */
+        .series-section {
+            margin-bottom: 80px;
+        }
+
+        .series-header {
+            margin-bottom: 32px;
+        }
+
+        .series-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot-coral {
+            background: var(--accent-coral);
+        }
+
+        .dot-blue {
+            background: var(--accent-blue);
+        }
+
+        .dot-purple {
+            background: var(--accent-purple);
+        }
+
+        .dot-amber {
+            background: var(--accent-amber);
+        }
+
+        .product-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-image {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            aspect-ratio: 1/1;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #AAA;
+            font-size: 0.875rem;
+        }
+
+        .product-info {
+            flex-grow: 1;
+        }
+
+        .product-info h3 {
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .product-info p.use-case {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .product-card .btn {
+            width: 100%;
+            margin-top: 16px;
+            padding: 10px;
+            background: transparent;
+            color: var(--accent-coral);
+            border: 1px solid var(--accent-coral);
+        }
+
+        .product-card .btn:hover {
+            background: var(--accent-coral);
+            color: white;
+        }
+
+        .footnote {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 16px;
+            font-style: italic;
+        }
+
+        /* SECTION 4 - SELECTION GUIDE */
+        .selection-guide {
+            background: var(--bg-secondary);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .guide-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .guide-card .dot {
+            flex-shrink: 0;
+            margin-top: 6px;
+        }
+
+        .guide-card h3 {
+            margin-bottom: 4px;
+            font-size: 1.125rem;
+        }
+
+        .guide-card p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* SECTION 5 - APPLICATIONS */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .icon-card {
+            background: rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+
+        .emoji-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        /* SECTION 6 - WHY CHOOSE TAIGUS */
+        .why-taigus {
+            background: var(--bg-secondary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .feature-icon-box {
+            width: 40px;
+            height: 40px;
+            background: var(--tag-coral-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+        }
+
+        /* SECTION 7 - CUSTOM SOLUTIONS & QUALITY */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: flex-start;
+        }
+
+        .bullet-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 1.125rem;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-coral);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .cert-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* SECTION 8 - FINAL CTA */
+        .cta-banner {
+            background: var(--bg-cta);
+            text-align: center;
+        }
+
+        .cta-banner p.body-centered {
+            max-width: 480px;
+            margin: 0 auto 32px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 32px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* FOOTER (Implied) */
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            color: #888;
+            font-size: 0.875rem;
+        }
+
+        /* RESPONSIVENESS */
+        @media (max-width: 900px) {
+            .split-section {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 56px 20px;
+            }
+
+            .grid-4,
+            .grid-3 {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .card {
+                padding: 16px;
+            }
+
+            .bullet-list li {
+                font-size: 1rem;
+            }
+        }
+
+        /* Mobile product grid fallback to 2 columns */
+        @media (max-width: 400px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hide-mobile {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SECTION 1 — HERO BANNER -->
+    <section class="hero">
+        <div class="container">
+            <span class="eyebrow">Product Range</span>
+            <h1>Our IML Product Range</h1>
+            <p class="subheadline">Premium food-grade IML plastic containers with anti-counterfeit (tamper-evident)
+                features — designed for dairy, ice cream, sweets, spreads, and FMCG applications.</p>
+            <p class="supporting">Manufactured using virgin food-grade polypropylene with high-resolution In-Mould
+                Labelling (IML) for superior durability, hygiene, and shelf appeal.</p>
+
+            <div class="tag-group center">
+                <span class="tag tag-green">🟢 Food-Grade & BPA-Free</span>
+                <span class="tag tag-coral">🟠 Anti-Counterfeit Design</span>
+                <span class="tag tag-blue">🔵 Custom IML Branding</span>
+                <span class="tag tag-amber">🟡 Scalable Bulk Production</span>
+            </div>
+
+            <div class="btn-group center">
+                <a href="#" class="btn btn-primary">Request a Quote</a>
+                <a href="#" class="btn btn-secondary">Download Catalogue</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 — CATEGORY FILTER / NAVIGATION -->
+    <section class="filter-section container" id="browse">
+        <div class="filter-nav">
+            <span class="eyebrow">Browse Containers</span>
+            <h2>Browse Our IML Containers</h2>
+            <p>Choose from our standard range or filter by container type and application.</p>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active">All Series</button>
+                <button class="filter-btn">Round Snap Fit (RC Series)</button>
+                <button class="filter-btn">Square Containers (ST Series)</button>
+                <button class="filter-btn">Oval Containers (OC Series)</button>
+                <button class="filter-btn">Twist Pack (SRT Series)</button>
+            </div>
+        </div>
+
+        <!-- SECTION 3A — ROUND SNAP FIT CONTAINERS (RC SERIES) -->
+        <div class="series-section">
+            <div class="series-header">
+                <div class="series-title"><span class="dot dot-coral"></span> RC Series</div>
+                <p>Best for: high-volume dairy, food, and FMCG packaging</p>
+            </div>
+
+            <div class="product-grid grid-4">
+                <!-- Card 1 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image RC-125 ]</div>
+                    <div class="product-info">
+                        <h3>RC-125 · 125 ml</h3>
+                        <p class="use-case">Ice cream</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">Food Grade</span>
+                            <span class="tag tag-gray">IML Printed</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image RC-500 ]</div>
+                    <div class="product-info">
+                        <h3>RC-500 · 500 ml</h3>
+                        <p class="use-case">Ice cream, shrikhand, lassi</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">Food Grade</span>
+                            <span class="tag tag-gray">Anti-Counterfeit</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image RC-1000 ]</div>
+                    <div class="product-info">
+                        <h3>RC-1000 · 1000 ml</h3>
+                        <p class="use-case">Curd, dairy, protein powder</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">Food Grade</span>
+                            <span class="tag tag-gray">Snap Fit</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image RC-2000 ]</div>
+                    <div class="product-info">
+                        <h3>RC-2000 · 2000 ml</h3>
+                        <p class="use-case">Bulk food, biryani, confectionery</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">With Handle</span>
+                            <span class="tag tag-gray">Food Grade</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+            </div>
+            <p class="footnote">Available with or without handle for larger sizes.</p>
+        </div>
+
+        <!-- SECTION 3B — SQUARE CONTAINERS (ST SERIES) -->
+        <div class="series-section">
+            <div class="series-header">
+                <div class="series-title"><span class="dot dot-blue"></span> ST Series</div>
+                <p>Best for: efficient storage, stacking, and transport</p>
+            </div>
+
+            <div class="product-grid grid-2">
+                <!-- Card 1 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image ST-770 ]</div>
+                    <div class="product-info">
+                        <h3>ST-770 · 750 ml</h3>
+                        <p class="use-case">Ice cream, dates</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">IML Printed</span>
+                            <span class="tag tag-gray">Food Grade</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image ST-1000 ]</div>
+                    <div class="product-info">
+                        <h3>ST-1000 · 1000 ml</h3>
+                        <p class="use-case">Confectionery, dry foods</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">Stackable</span>
+                            <span class="tag tag-gray">Food Grade</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3C — OVAL SNAP FIT CONTAINERS (OC SERIES) -->
+        <div class="series-section">
+            <div class="series-header">
+                <div class="series-title"><span class="dot dot-purple"></span> OC Series</div>
+                <p>Best for: premium retail packaging and shelf appeal</p>
+            </div>
+
+            <div class="product-grid grid-2">
+                <!-- Card 1 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image OC-750 ]</div>
+                    <div class="product-info">
+                        <h3>OC-750 · 750 ml</h3>
+                        <p class="use-case">Confectionery, premium food</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">IML Printed</span>
+                            <span class="tag tag-gray">Anti-Counterfeit</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image OC-1000 ]</div>
+                    <div class="product-info">
+                        <h3>OC-1000 · 1000 ml</h3>
+                        <p class="use-case">Retail packaging</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">Food Grade</span>
+                            <span class="tag tag-gray">Snap Fit</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3D — TWIST PACK CONTAINERS (SRT SERIES) -->
+        <div class="series-section" style="margin-bottom:0;">
+            <div class="series-header">
+                <div class="series-title"><span class="dot dot-amber"></span> SRT Series</div>
+                <p>Best for: leak-sensitive and sealed products</p>
+            </div>
+
+            <div class="product-grid grid-3">
+                <!-- Card 1 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image SRT-250 ]</div>
+                    <div class="product-info">
+                        <h3>SRT-250 · 200 ml</h3>
+                        <p class="use-case">Ghee, powders</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">Twist Lock</span>
+                            <span class="tag tag-gray">Heat Sealable</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image SRT-500 ]</div>
+                    <div class="product-info">
+                        <h3>SRT-500 · 500 ml</h3>
+                        <p class="use-case">Peanut butter, spreads</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">Twist Lock</span>
+                            <span class="tag tag-gray">Anti-Counterfeit</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card product-card">
+                    <div class="product-image">[ Product Image SRT-1000 ]</div>
+                    <div class="product-info">
+                        <h3>SRT-1000 · 1000 ml</h3>
+                        <p class="use-case">Bulk powders, food products</p>
+                        <div class="tag-group">
+                            <span class="tag tag-gray">Induction Seal</span>
+                            <span class="tag tag-gray">Food Grade</span>
+                        </div>
+                    </div>
+                    <button class="btn">Get Quote for This Size</button>
+                </div>
+            </div>
+            <p class="footnote">Comes with sealing wads — heat sealable with induction.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 4 — SELECTION GUIDE -->
+    <section class="selection-guide">
+        <div class="container">
+            <span class="eyebrow">Selection Guide</span>
+            <h2>Not Sure Which Container Fits Your Product?</h2>
+            <p>Use this quick guide to find the best match, then talk to our team for a tailored recommendation.</p>
+
+            <div class="guide-grid">
+                <div class="card guide-card">
+                    <span class="dot dot-coral"></span>
+                    <div>
+                        <h3>Dairy products</h3>
+                        <p><strong>Round snap fit (RC series)</strong> — ice cream, curd, shrikhand, lassi</p>
+                    </div>
+                </div>
+                <div class="card guide-card">
+                    <span class="dot dot-purple"></span>
+                    <div>
+                        <h3>Premium retail packaging</h3>
+                        <p><strong>Oval containers (OC series)</strong> — brand-focused shelf products</p>
+                    </div>
+                </div>
+                <div class="card guide-card">
+                    <span class="dot dot-blue"></span>
+                    <div>
+                        <h3>Storage & transport efficiency</h3>
+                        <p><strong>Square containers (ST series)</strong> — dry foods, dates, confectionery</p>
+                    </div>
+                </div>
+                <div class="card guide-card">
+                    <span class="dot dot-amber"></span>
+                    <div>
+                        <h3>Leak-sensitive or sealed products</h3>
+                        <p><strong>Twist pack (SRT series)</strong> — ghee, peanut butter, powders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — APPLICATIONS ACROSS INDUSTRIES -->
+    <section class="applications container">
+        <span class="eyebrow text-center">Applications</span>
+        <h2 class="text-center">Packaging Solutions for Multiple Applications</h2>
+
+        <div class="icon-grid">
+            <div class="card icon-card">
+                <div class="emoji-icon">🥛</div>
+                <h3>Dairy Products</h3>
+                <p>Ice cream, curd, shrikhand, lassi</p>
+            </div>
+            <div class="card icon-card">
+                <div class="emoji-icon">🧈</div>
+                <h3>Spreads & Butters</h3>
+                <p>Peanut butter, chocolate spreads, ghee</p>
+            </div>
+            <div class="card icon-card">
+                <div class="emoji-icon">🌾</div>
+                <h3>Powders</h3>
+                <p>Protein, glucose, baking soda</p>
+            </div>
+            <div class="card icon-card">
+                <div class="emoji-icon">🫘</div>
+                <h3>Dry Foods</h3>
+                <p>Dates, seeds, confectionery, biryani</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 — WHY CHOOSE TAIGUS -->
+    <section class="why-taigus">
+        <div class="container">
+            <span class="eyebrow text-center">Why Taigus</span>
+            <h2 class="text-center">Built for Performance, Designed for Brands</h2>
+
+            <div class="feature-grid">
+                <div class="card">
+                    <div class="feature-icon-box">🏷️</div>
+                    <h3>Permanent Branding</h3>
+                    <p>IML labels do not peel, fade, or damage over time</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon-box">✅</div>
+                    <h3>Food-Grade Safety</h3>
+                    <p>BPA-free, safe for direct food contact applications</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon-box">🔒</div>
+                    <h3>Anti-Counterfeit Protection</h3>
+                    <p>Enhances product authenticity and brand trust</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon-box">📦</div>
+                    <h3>Consistent Quality</h3>
+                    <p>Reliable across bulk and repeat production runs</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon-box">🚚</div>
+                    <h3>Logistics Optimized</h3>
+                    <p>Stackable, durable, and transport-friendly design</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon-box">⚡</div>
+                    <h3>Scalable Production</h3>
+                    <p>Automated facility for consistent high-volume output</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 — CUSTOM SOLUTIONS + QUALITY (2-COLUMN) -->
+    <section class="container split-section">
+        <div class="col-left">
+            <span class="eyebrow">Custom Solutions</span>
+            <h2>Need a Custom Shape or Size?</h2>
+            <p>We design and manufacture fully customized IML containers tailored to your product and brand
+                requirements.</p>
+
+            <ul class="bullet-list">
+                <li>Custom capacities and shapes</li>
+                <li>Brand-specific colors and finishes</li>
+                <li>Full IML artwork integration</li>
+                <li>Private-label manufacturing</li>
+            </ul>
+
+            <a href="#" class="btn btn-primary">Request Custom Container Design &rarr;</a>
+        </div>
+        <div class="col-right">
+            <span class="eyebrow">Quality & Manufacturing</span>
+            <h2>Manufactured with Certified Quality</h2>
+            <p>Fully integrated production with labels, molds, and robotics — backed by internationally recognised
+                certifications.</p>
+
+            <div class="cert-grid">
+                <div class="card cert-card">ISO 22000</div>
+                <div class="card cert-card">BRCGS Certified</div>
+                <div class="card cert-card">Automated Facility</div>
+                <div class="card cert-card">Strict QC Systems</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 — FINAL CTA BANNER -->
+    <section class="cta-banner">
+        <div class="container">
+            <span class="eyebrow">Get Started</span>
+            <h2>Ready to Scale Your Packaging?</h2>
+            <p class="body-centered">Whether you need standard sizes or fully customized IML containers, Taigus delivers
+                reliable, scalable packaging solutions.</p>
+
+            <div class="btn-group center">
+                <a href="#" class="btn btn-primary">Request a Quote Now</a>
+                <a href="#" class="btn btn-secondary">Talk to an Expert</a>
+            </div>
+
+            <div class="contact-info">
+                <span>📞 +91 99982 25583</span>
+                <span>✉ info@taigus.in</span>
+                <span>⚡ Responds within 1 business day</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Taigus. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
