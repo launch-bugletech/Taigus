@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diamond District Dental NYC | Midtown Manhattan Premier Dentist</title>
+    <meta name="description"
+        content="Top-rated cosmetic & implant dentist in Midtown NYC. NYU-trained Dr. Oleg Klempner offers veneers, dental implants, LANAP laser gum therapy & same-day consultations." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ── Reset & Base ──────────────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: #06151f;
+            color: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Color Tokens ─────────────────────────────────────────── */
+        :root {
+            --navy-deep: #04111a;
+            --navy-dark: #071e29;
+            --navy-mid: #0b2a3a;
+            --navy-nav: #0f3448;
+            --teal: #1e7a8a;
+            --teal-light: #7ec8d8;
+            --teal-glow: rgba(30, 122, 138, 0.25);
+            --gold: #f5c842;
+            --text-dim: rgba(255, 255, 255, 0.55);
+            --text-mid: rgba(255, 255, 255, 0.75);
+            --border-sub: rgba(126, 200, 216, 0.12);
+            --border-faint: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ── Animated Unique Background ───────────────────────────── */
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            /* Layered: radial glow + diagonal gradient */
+            background:
+                radial-gradient(ellipse 80% 60% at 70% 50%, rgba(30, 122, 138, 0.13) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 70% at 10% 90%, rgba(0, 55, 108, 0.25) 0%, transparent 55%),
+                linear-gradient(145deg, #04111a 0%, #071e29 40%, #0b2a3a 70%, #071e29 100%);
+            /* Subtle animated shimmer */
+            animation: bgShimmer 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgShimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* ── Diamond Grid Overlay ─────────────────────────────────── */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image:
+                linear-gradient(rgba(126, 200, 216, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(126, 200, 216, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        /* ── Floating Orbs ────────────────────────────────────────── */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            animation: orbFloat 18s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 420px;
+            height: 420px;
+            background: rgba(30, 122, 138, 0.12);
+            top: -100px;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 320px;
+            height: 320px;
+            background: rgba(0, 55, 108, 0.18);
+            bottom: 10%;
+            left: -80px;
+            animation-delay: -7s;
+        }
+
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: rgba(126, 200, 216, 0.07);
+            top: 45%;
+            right: 30%;
+            animation-delay: -13s;
+        }
+
+        @keyframes orbFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(20px, -30px) scale(1.05);
+            }
+
+            66% {
+                transform: translate(-15px, 20px) scale(0.95);
+            }
+        }
+
+        /* ── Top Info Bar ─────────────────────────────────────────── */
+        .top-bar {
+            position: relative;
+            z-index: 50;
+            background: var(--navy-deep);
+            border-bottom: 0.5px solid var(--border-sub);
+            padding: 7px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .top-bar-left {
+            font-size: 11.5px;
+            color: var(--teal-light);
+            letter-spacing: 0.03em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar-phone {
+            font-size: 12px;
+            color: var(--text-mid);
+        }
+
+        .top-bar-phone strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .top-bar-socials {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .social-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 0.5px solid var(--border-sub);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .social-dot:hover {
+            background: var(--teal-glow);
+        }
+
+        .social-dot svg {
+            width: 10px;
+            height: 10px;
+            fill: var(--teal-light);
+        }
+
+        /* ── Navigation ───────────────────────────────────────────── */
+        nav {
+            position: relative;
+            z-index: 50;
+            background: rgba(15, 52, 72, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 0.5px solid rgba(126, 200, 216, 0.15);
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-diamond {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            line-height: 1.25;
+        }
+
+        .logo-text .l1 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--teal-light);
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .logo-text .l2 {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: color 0.2s;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--teal-light);
+            transform: scaleX(0);
+            transition: transform 0.25s ease;
+        }
+
+        .nav-links li a:hover {
+            color: var(--teal-light);
+        }
+
+        .nav-links li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-cta {
+            background: var(--teal);
+            color: #fff;
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 9px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.03em;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 0 0 0 rgba(30, 122, 138, 0);
+        }
+
+        .nav-cta:hover {
+            background: #25909e;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(30, 122, 138, 0.35);
+        }
+
+        /* ── Hero Section ─────────────────────────────────────────── */
+        .hero-section {
+            position: relative;
+            z-index: 10;
+            min-height: calc(100vh - 88px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Full-bleed background image */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 65% center;
+            transform: scale(1.06);
+            animation: heroZoom 22s ease-in-out infinite alternate;
+            display: block;
+        }
+
+        @keyframes heroZoom {
+            0% {
+                transform: scale(1.06);
+            }
+
+            100% {
+                transform: scale(1.12);
+            }
+        }
+
+        /* Multi-layer cinematic overlay */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                linear-gradient(105deg, rgba(4, 17, 26, 0.97) 0%, rgba(4, 17, 26, 0.82) 38%, rgba(4, 17, 26, 0.35) 62%, transparent 82%),
+                linear-gradient(to top, rgba(4, 17, 26, 0.9) 0%, transparent 40%),
+                radial-gradient(ellipse 55% 70% at 78% 35%, rgba(30, 122, 138, 0.22), transparent 65%);
+        }
+
+        /* Scanline texture for depth */
+        .hero-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.03) 2px,
+                    rgba(0, 0, 0, 0.03) 4px);
+            pointer-events: none;
+        }
+
+        /* Main content wrapper */
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 64px 68px 80px 68px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* ── LEFT PANEL ───────────────────────────────────────────── */
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* ── Hero Entrance Animations ─────────────────────────────── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(30, 122, 138, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(30, 122, 138, 0);
+            }
+        }
+
+        .hero-anim-1 {
+            animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+        }
+
+        .hero-anim-2 {
+            animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+        }
+
+        .hero-anim-3 {
+            animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.40s both;
+        }
+
+        .hero-anim-4 {
+            animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+        }
+
+        .hero-anim-5 {
+            animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.70s both;
+        }
+
+        .hero-anim-6 {
+            animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.85s both;
+        }
+
+        /* Eyebrow badge */
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .eyebrow-pulse {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--teal);
+            flex-shrink: 0;
+            animation: pulseGlow 2.2s ease-in-out infinite;
+        }
+
+        .eyebrow-badge {
+            background: rgba(30, 122, 138, 0.18);
+            border: 1px solid rgba(126, 200, 216, 0.45);
+            color: var(--teal-light);
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Headline */
+        .hero-h1 {
+            font-family: 'Noto Serif', serif;
+            font-size: clamp(36px, 4vw, 58px);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.12;
+            margin-bottom: 12px;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, #7ec8d8 0%, #25d0c7 55%, #7ec8d8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-h1-sub {
+            font-family: 'Noto Serif', serif;
+            font-size: clamp(15px, 1.6vw, 20px);
+            font-weight: 400;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.42);
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        /* Descriptor */
+        .hero-desc {
+            font-size: 14.5px;
+            color: rgba(255, 255, 255, 0.62);
+            line-height: 1.75;
+            margin-bottom: 32px;
+            max-width: 440px;
+        }
+
+        .hero-desc strong {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        /* Trust checkmarks */
+        .trust-checks {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            margin-bottom: 34px;
+        }
+
+        .trust-check {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .check-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(30, 122, 138, 0.28);
+            border: 1px solid rgba(126, 200, 216, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .check-icon svg {
+            width: 10px;
+            height: 10px;
+            stroke: var(--teal-light);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* CTAs */
+        .hero-ctas {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #1b7282 0%, #239aad 100%);
+            color: #fff;
+            font-size: 13.5px;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.04em;
+            box-shadow: 0 10px 32px rgba(30, 122, 138, 0.45), 0 2px 0 rgba(255, 255, 255, 0.06) inset;
+            transition: transform 0.22s, box-shadow 0.22s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 42px rgba(30, 122, 138, 0.6);
+        }
+
+        .btn-primary svg {
+            width: 15px;
+            height: 15px;
+            stroke: #fff;
+            stroke-width: 2.2;
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        .btn-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 13.5px;
+            font-weight: 600;
+            padding: 14px 24px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: background 0.22s, border-color 0.22s, color 0.22s;
+            text-decoration: none;
+            backdrop-filter: blur(8px);
+            white-space: nowrap;
+        }
+
+        .btn-phone:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(126, 200, 216, 0.45);
+            color: #fff;
+        }
+
+        .btn-phone svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--teal-light);
+            stroke-width: 2;
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13.5px;
+            font-weight: 500;
+            padding: 14px 26px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: background 0.2s, border-color 0.2s;
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(126, 200, 216, 0.4);
+        }
+
+        /* Trust pills */
+        .trust-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .trust-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 5px 13px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+            backdrop-filter: blur(6px);
+        }
+
+        .trust-pill:hover {
+            border-color: rgba(126, 200, 216, 0.4);
+            color: var(--teal-light);
+            background: rgba(30, 122, 138, 0.1);
+        }
+
+        /* ── RIGHT PANEL — floating visual cards ──────────────────── */
+        .hero-right {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 480px;
+        }
+
+        /* Proof card stack container */
+        .hero-proof-stack {
+            position: relative;
+            width: 320px;
+        }
+
+        /* Individual floating card */
+        .hf-card {
+            background: rgba(6, 22, 34, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(126, 200, 216, 0.22);
+            border-radius: 18px;
+            padding: 20px 22px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .hf-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 24px 56px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Card 1 — Doctor */
+        .hf-card-doc {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            animation: cardFloat 7s ease-in-out infinite;
+        }
+
+        /* Card 2 — Stats */
+        .hf-card-stats {
+            margin-top: 16px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: rgba(126, 200, 216, 0.12);
+            border-radius: 18px;
+            overflow: hidden;
+            animation: cardFloat 9s ease-in-out infinite reverse;
+        }
+
+        .hf-stat-cell {
+            padding: 18px 16px;
+            background: rgba(6, 22, 34, 0.82);
+            backdrop-filter: blur(18px);
+            text-align: center;
+        }
+
+        .hf-stat-cell:hover {
+            background: rgba(30, 122, 138, 0.12);
+        }
+
+        /* Card 3 — Review snippet */
+        .hf-card-review {
+            margin-top: 16px;
+            position: relative;
+            z-index: 1;
+            animation: cardFloat 8s ease-in-out 2s infinite;
+        }
+
+        /* Card badge for right panel */
+        .hf-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(30, 122, 138, 0.22);
+            border: 1px solid rgba(126, 200, 216, 0.35);
+            border-radius: 20px;
+            padding: 3px 10px;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--teal-light);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hf-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--teal-light);
+            display: block;
+        }
+
+        /* Doctor avatar */
+        .doc-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(30, 122, 138, 0.5), rgba(7, 30, 41, 0.9));
+            border: 2px solid rgba(126, 200, 216, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .doc-avatar svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--teal-light);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .doc-name {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .doc-title {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 2px;
+        }
+
+        .doc-badge {
+            margin-top: 5px;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--teal-light);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .stat-big {
+            font-family: 'Noto Serif', serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .stat-big span {
+            color: var(--teal-light);
+        }
+
+        .stat-desc {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.42);
+            margin-top: 4px;
+            letter-spacing: 0.02em;
+        }
+
+        .stars-row {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 8px;
+        }
+
+        .stars-row .star {
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .review-quote {
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.55;
+            font-style: italic;
+        }
+
+        .review-author {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--teal-light);
+            margin-top: 10px;
+            letter-spacing: 0.04em;
+        }
+
+        @keyframes cardFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* ── Hero Stats Ribbon ────────────────────────────────────── */
+        .hero-stats-ribbon {
+            position: relative;
+            z-index: 5;
+            border-top: 1px solid rgba(126, 200, 216, 0.12);
+            background: rgba(4, 17, 26, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .ribbon-item {
+            padding: 22px 28px;
+            border-right: 1px solid rgba(126, 200, 216, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: background 0.25s;
+        }
+
+        .ribbon-item:last-child {
+            border-right: none;
+        }
+
+        .ribbon-item:hover {
+            background: rgba(30, 122, 138, 0.07);
+        }
+
+        .ribbon-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(30, 122, 138, 0.18);
+            border: 1px solid rgba(126, 200, 216, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ribbon-icon svg {
+            width: 17px;
+            height: 17px;
+            stroke: var(--teal-light);
+            stroke-width: 1.8;
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .ribbon-num {
+            font-family: 'Noto Serif', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .ribbon-label {
+            font-size: 10.5px;
+            color: rgba(255, 255, 255, 0.38);
+            margin-top: 3px;
+            letter-spacing: 0.03em;
+        }
+
+        /* ── Services Bar ─────────────────────────────────────────── */
+        .services-bar {
+            position: relative;
+            z-index: 10;
+            background: var(--navy-deep);
+            border-top: 0.5px solid var(--border-sub);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .svc-item {
+            padding: 16px 20px;
+            border-right: 0.5px solid rgba(126, 200, 216, 0.07);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .svc-item:hover {
+            background: rgba(30, 122, 138, 0.07);
+        }
+
+        .svc-item:last-child {
+            border-right: none;
+        }
+
+        .svc-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
+            flex-shrink: 0;
+            box-shadow: 0 0 6px rgba(30, 122, 138, 0.6);
+        }
+
+        .svc-item span {
+            font-size: 11px;
+            color: var(--text-dim);
+            letter-spacing: 0.03em;
+        }
+
+        /* ── Bottom Info Bar ──────────────────────────────────────── */
+        .info-bar {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.98);
+            border-top: 1px solid rgba(200, 215, 225, 0.3);
+        }
+
+        .info-bar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            align-items: center;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .info-icon-wrap {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-icon-wrap.teal-bg {
+            background: rgba(30, 122, 138, 0.12);
+        }
+
+        .info-icon-wrap.blue-bg {
+            background: rgba(0, 55, 108, 0.1);
+        }
+
+        .info-icon-wrap.grey-bg {
+            background: rgba(0, 0, 0, 0.06);
+        }
+
+        .info-icon-wrap svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+        }
+
+        .info-icon-wrap.teal-bg svg {
+            stroke: #0b6a7a;
+        }
+
+        .info-icon-wrap.blue-bg svg {
+            stroke: #00376c;
+        }
+
+        .info-icon-wrap.grey-bg svg {
+            stroke: #3d4f5c;
+        }
+
+        .info-label {
+            font-size: 9.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: #8a9bab;
+            margin-bottom: 3px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0b2a3a;
+        }
+
+        .info-value small {
+            font-size: 12px;
+            font-weight: 500;
+            color: #4a6070;
+        }
+
+        /* ── Footer ───────────────────────────────────────────────── */
+        footer {
+            position: relative;
+            z-index: 10;
+            background: var(--navy-dark);
+            border-top: 0.5px solid var(--border-sub);
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 28px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-brand {
+            font-family: 'Noto Serif', serif;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .footer-links a,
+        .footer-links span {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.35);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal-light);
+        }
+
+        .footer-copy {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ── Responsive ───────────────────────────────────────────── */
+        @media (max-width: 1100px) {
+            .hero-content {
+                padding: 56px 44px 72px 44px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                padding: 52px 32px 64px 32px;
+            }
+
+            .hero-right {
+                display: none;
+            }
+
+            .hero-h1 {
+                font-size: clamp(32px, 6vw, 46px);
+            }
+
+            .hero-stats-ribbon {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-bar-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .top-bar {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 40px 20px 56px 20px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .hero-ctas .btn-primary,
+            .hero-ctas .btn-phone {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-stats-ribbon {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .ribbon-item {
+                padding: 16px 14px;
+            }
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#654907",
+                        "secondary": "#00677d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#424750",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "primary-container": "#1d4e89",
+                        "secondary-fixed": "#b3ebff",
+                        "outline": "#737781",
+                        "secondary-container": "#72ddfd",
+                        "inverse-on-surface": "#f0f1f2",
+                        "outline-variant": "#c3c6d1",
+                        "on-background": "#191c1d",
+                        "inverse-surface": "#2e3132",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#004e5f",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "inverse-primary": "#a7c8ff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-container": "#e1ba70",
+                        "primary": "#00376c",
+                        "tertiary": "#493300",
+                        "surface-container": "#edeeef",
+                        "primary-fixed": "#d5e3ff",
+                        "on-tertiary-fixed": "#261900",
+                        "on-secondary-container": "#006075",
+                        "on-primary-fixed-variant": "#124782",
+                        "secondary-fixed-dim": "#69d4f4",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#325f9b",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "on-primary-fixed": "#001c3b",
+                        "surface-variant": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e7e8e9",
+                        "on-surface": "#191c1d",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "on-secondary-fixed": "#001f27",
+                        "on-primary-container": "#9ac1ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdea5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- ── Background Layers ─────────────────────────────── -->
+    <div class="page-bg" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="orb orb-3" aria-hidden="true"></div>
+
+    <!-- ── Top Info Bar ──────────────────────────────────── -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" style="color: var(--teal-light)">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                <circle cx="12" cy="9" r="2.5" />
+            </svg>
+            10 W 46th St, Suite 1401 · Midtown Manhattan, NY 10036
+        </div>
+        <div class="top-bar-right">
+            <span class="top-bar-phone">New Patients: <strong>(646) 751-7355</strong></span>
+            <span class="top-bar-phone">Current: <strong>(212) 759-5595</strong></span>
+            <div class="top-bar-socials">
+                <div class="social-dot" title="Facebook">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                    </svg>
+                </div>
+                <div class="social-dot" title="LinkedIn">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                    </svg>
+                </div>
+                <div class="social-dot" title="Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="var(--navy-dark)" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--navy-dark)" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Navigation ────────────────────────────────────── -->
+    <nav role="navigation" aria-label="Main navigation">
+        <a class="logo-block" href="#" aria-label="Diamond District Dental NYC home">
+            <svg class="logo-diamond" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+                <polygon points="19,3 35,11 35,27 19,35 3,27 3,11" fill="rgba(30,122,138,0.12)" stroke="#1e7a8a"
+                    stroke-width="1.2" />
+                <polygon points="19,9 29,15 29,23 19,29 9,23 9,15" fill="rgba(30,122,138,0.18)" stroke="#7ec8d8"
+                    stroke-width="0.6" />
+                <polygon points="19,15 24,18 24,22 19,25 14,22 14,18" fill="#1e7a8a" />
+                <polygon points="19,17 22,18.5 22,21.5 19,23 16,21.5 16,18.5" fill="rgba(126,200,216,0.4)" />
+            </svg>
+            <div class="logo-text">
+                <div class="l1">Diamond District</div>
+                <div class="l2">Dental NYC</div>
+            </div>
+        </a>
+        <ul class="nav-links" role="list">
+            <li><a href="#">Implant Dentistry</a></li>
+            <li><a href="#">Smile Makeover</a></li>
+            <li><a href="#">LANAP Laser</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Who We Are</a></li>
+        </ul>
+        <button class="nav-cta" id="nav-book-btn">Book Appointment →</button>
+    </nav>
+
+    <!-- ── Hero Section ───────────────────────────────────── -->
+    <section class="hero-section" aria-label="Hero" id="hero">
+
+        <!-- Full-bleed Background Image -->
+        <div class="hero-bg" aria-hidden="true">
+            <img src="https://www.dddentalnyc.com/wp-content/uploads/2024/12/office.jpg" alt="" loading="eager"
+                decoding="async" />
+        </div>
+
+        <!-- Cinematic overlay -->
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <!-- Hero Content Grid -->
+        <div class="hero-content">
+
+            <!-- LEFT: Content Panel -->
+            <div class="hero-left">
+
+                <!-- Eyebrow -->
+                <div class="hero-eyebrow hero-anim-1">
+                    <div class="eyebrow-pulse"></div>
+                    <span class="eyebrow-badge">Midtown Manhattan's Premier Dental Practice</span>
+                </div>
+
+                <!-- MAIN HEADLINE (ONLY ONE H1) -->
+                <h1 class="hero-h1 hero-anim-2">
+                    Transform Your Smile<br>with <em>Expert, Gentle Care</em>
+                </h1>
+
+                <!-- Sub-headline -->
+                <p class="hero-h1-sub hero-anim-3">
+                    Top-Rated Dentist in Midtown NYC · Life-Changing Results
+                </p>
+
+                <!-- Descriptor -->
+                <p class="hero-desc hero-anim-3">
+                    Experience advanced <strong>dental implants</strong>, stunning cosmetic makeovers,
+                    and truly comfortable care — just steps from Times Square &amp; Grand Central.
+                </p>
+
+                <!-- Trust Checks -->
+                <div class="trust-checks hero-anim-4" role="list">
+                    <div class="trust-check" role="listitem">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 12 10">
+                                <polyline points="1,5 4,8 11,1" />
+                            </svg>
+                        </div>
+                        Same-Day Implants &amp; Smile Makeovers
+                    </div>
+                    <div class="trust-check" role="listitem">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 12 10">
+                                <polyline points="1,5 4,8 11,1" />
+                            </svg>
+                        </div>
+                        Anxiety-Free Experience with NYU-Trained Specialist
+                    </div>
+                    <div class="trust-check" role="listitem">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 12 10">
+                                <polyline points="1,5 4,8 11,1" />
+                            </svg>
+                        </div>
+                        LANAP Laser Gum Therapy &amp; Invisible Aligners
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="hero-ctas hero-anim-5">
+                    <button class="btn-primary" id="hero-book-btn" aria-label="Book a free dental consultation">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                        Book Free Consultation
+                    </button>
+
+                    <a href="tel:6467517355" class="btn-phone" id="hero-phone-btn"
+                        aria-label="Call Diamond District Dental">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
+                        </svg>
+                        (646) 751-7355
+                    </a>
+                </div>
+
+                <!-- Trust Pills -->
+                <div class="trust-pills hero-anim-6" role="list">
+                    <div class="trust-pill" role="listitem">🏅 ICOI Fellow</div>
+                    <div class="trust-pill" role="listitem">🦷 LANAP Certified</div>
+                    <div class="trust-pill" role="listitem">🎓 NYU Trained</div>
+                    <div class="trust-pill" role="listitem">📍 Midtown NYC</div>
+                    <div class="trust-pill" role="listitem">⭐ 4.9 / 5 Stars</div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: Floating Proof Cards -->
+            <div class="hero-right" aria-label="About Dr. Klempner and practice highlights">
+
+                <div class="hero-proof-stack">
+
+                    <!-- Doctor Card -->
+                    <div class="hf-card hf-card-doc hero-anim-2">
+                        <div class="doc-avatar">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="hf-badge">NYU Trained Specialist</div>
+                            <div class="doc-name">Dr. Oleg Klempner</div>
+                            <div class="doc-title">30+ Years · Implants &amp; Cosmetics</div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Grid Card -->
+                    <div class="hf-card-stats hero-anim-3">
+                        <div class="hf-stat-cell">
+                            <div class="stat-big"><span>30</span>+</div>
+                            <div class="stat-desc">Years Serving NYC</div>
+                        </div>
+                        <div class="hf-stat-cell">
+                            <div class="stat-big"><span>500</span>+</div>
+                            <div class="stat-desc">5-Star Reviews</div>
+                        </div>
+                        <div class="hf-stat-cell">
+                            <div class="stat-big"><span>98</span>%</div>
+                            <div class="stat-desc">Patient Satisfaction</div>
+                        </div>
+                        <div class="hf-stat-cell">
+                            <div class="stat-big"><span>1</span>Day</div>
+                            <div class="stat-desc">Same-Day Consults</div>
+                        </div>
+                    </div>
+
+                    <!-- Review Snippet Card -->
+                    <div class="hf-card hf-card-review hero-anim-4">
+                        <div class="stars-row">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="review-quote">"Dr. Klempner transformed my smile completely. The most comfortable
+                            dental experience I've ever had in NYC."</p>
+                        <div class="review-author">— Sarah M., Verified Google Review</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div><!-- /hero-content -->
+
+        <!-- Stats Ribbon at bottom of hero -->
+        <div class="hero-stats-ribbon" role="list" aria-label="Practice highlights">
+            <div class="ribbon-item" role="listitem">
+                <div class="ribbon-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2a7 7 0 110 14A7 7 0 0112 2z" />
+                        <path d="M12 16v6M8 22h8" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="ribbon-num">30+ Yrs</div>
+                    <div class="ribbon-label">Expert Experience</div>
+                </div>
+            </div>
+            <div class="ribbon-item" role="listitem">
+                <div class="ribbon-icon">
+                    <svg viewBox="0 0 24 24">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="ribbon-num">4.9 / 5</div>
+                    <div class="ribbon-label">500+ Reviews</div>
+                </div>
+            </div>
+            <div class="ribbon-item" role="listitem">
+                <div class="ribbon-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="ribbon-num">Same Day</div>
+                    <div class="ribbon-label">Consultations Available</div>
+                </div>
+            </div>
+            <div class="ribbon-item" role="listitem">
+                <div class="ribbon-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                        <circle cx="12" cy="9" r="2.5" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="ribbon-num">Midtown</div>
+                    <div class="ribbon-label">10 W 46th St, Suite 1401</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
