@@ -1,0 +1,1337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taigus | Premium IML Containers for Modern Brands</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffff;
+  --off-white: #f9f8f6;
+  --light-gray: #f2f0ed;
+  --mid-gray: #e8e4df;
+  --border: #ddd8d0;
+  --text-dark: #1a1714;
+  --text-mid: #4a4540;
+  --text-light: #8a8278;
+  --accent-blue: #1e5fff;
+  --accent-cyan: #00c4cc;
+  --accent-green: #00b37e;
+  --accent-orange: #ff6b35;
+  --accent-pink: #e91e8c;
+  --accent-purple: #7c3aed;
+  --gradient-hero: linear-gradient(135deg, #f9f8f6 0%, #eef2ff 50%, #f0fffe 100%);
+  --shadow-soft: 0 4px 24px rgba(0,0,0,0.06);
+  --shadow-card: 0 8px 40px rgba(0,0,0,0.08);
+  --shadow-hover: 0 20px 60px rgba(0,0,0,0.14);
+  --radius: 20px;
+  --radius-sm: 12px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--off-white); }
+::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 10px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 60px;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  animation: slideDown 0.6s ease;
+}
+@keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--accent-blue); }
+
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-mid);
+  text-decoration: none; transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--accent-blue); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--accent-blue); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: var(--accent-blue); color: white;
+  padding: 10px 24px; border-radius: 50px;
+  font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 16px rgba(30,95,255,0.3);
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30,95,255,0.4); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  background: var(--gradient-hero);
+  padding: 120px 60px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: '';
+  position: absolute; top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(30,95,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 6s ease-in-out infinite;
+}
+#hero::after {
+  content: '';
+  position: absolute; bottom: -100px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(0,196,204,0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 8s ease-in-out infinite reverse;
+}
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: white; border: 1px solid var(--border);
+  border-radius: 50px; padding: 8px 16px;
+  font-size: 13px; font-weight: 500; color: var(--text-mid);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 28px;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+.hero-badge .dot { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; animation: blink 2s infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -2px;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+.hero-title em { font-style: italic; color: var(--accent-blue); }
+.hero-title .outline-text {
+  -webkit-text-stroke: 2px var(--accent-cyan);
+  color: transparent;
+}
+
+.hero-desc {
+  margin-top: 24px;
+  font-size: 17px; line-height: 1.7;
+  color: var(--text-mid); max-width: 480px;
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+
+.hero-stats {
+  display: flex; gap: 40px; margin-top: 40px;
+  animation: fadeUp 0.8s ease 0.8s both;
+}
+.stat-item {}
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px; color: var(--text-dark);
+  line-height: 1;
+}
+.stat-num span { color: var(--accent-blue); }
+.stat-label { font-size: 13px; color: var(--text-light); font-weight: 500; margin-top: 4px; }
+
+.hero-btns {
+  display: flex; gap: 16px; margin-top: 40px;
+  animation: fadeUp 0.8s ease 1s both;
+}
+.btn-primary {
+  background: var(--accent-blue); color: white;
+  padding: 16px 36px; border-radius: 50px;
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  box-shadow: 0 8px 24px rgba(30,95,255,0.35);
+  transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(30,95,255,0.45); }
+.btn-secondary {
+  background: white; color: var(--text-dark);
+  padding: 16px 36px; border-radius: 50px;
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-secondary:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); border-color: var(--accent-blue); color: var(--accent-blue); }
+
+/* Hero right - floating containers */
+.hero-visual {
+  position: relative; height: 540px;
+  animation: fadeRight 1s ease 0.4s both;
+}
+@keyframes fadeRight { from { opacity: 0; transform: translateX(60px); } to { opacity: 1; transform: translateX(0); } }
+
+.container-float {
+  position: absolute;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+  transition: transform 0.4s;
+}
+.container-float:hover { transform: scale(1.03) rotate(-1deg); }
+.cf-1 { width: 220px; height: 220px; top: 20px; right: 60px; animation: float1 4s ease-in-out infinite; background: linear-gradient(135deg, #e8f4fd, #cce8ff); display:flex; align-items:center; justify-content:center; }
+.cf-2 { width: 180px; height: 180px; top: 200px; right: 260px; animation: float2 5s ease-in-out infinite; background: linear-gradient(135deg, #e8fff8, #b8f7e8); display:flex; align-items:center; justify-content:center; }
+.cf-3 { width: 200px; height: 200px; top: 320px; right: 80px; animation: float3 6s ease-in-out infinite; background: linear-gradient(135deg, #fff0e8, #ffd8c0); display:flex; align-items:center; justify-content:center; }
+.cf-4 { width: 150px; height: 150px; top: 60px; right: 280px; animation: float1 7s ease-in-out infinite reverse; background: linear-gradient(135deg, #f0e8ff, #dcc8ff); display:flex; align-items:center; justify-content:center; }
+
+@keyframes float1 { 0%,100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-18px) rotate(2deg); } }
+@keyframes float2 { 0%,100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-12px) rotate(-2deg); } }
+@keyframes float3 { 0%,100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(1deg); } }
+
+.cf-emoji { font-size: 60px; }
+
+.hero-ribbon {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: white; border-top: 1px solid var(--border);
+  padding: 20px 60px;
+  display: flex; align-items: center; gap: 40px;
+  overflow: hidden;
+}
+.ribbon-track {
+  display: flex; gap: 40px;
+  animation: scrollX 20s linear infinite;
+  white-space: nowrap;
+}
+@keyframes scrollX { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ribbon-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 600; color: var(--text-light);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.ribbon-dot { width: 6px; height: 6px; background: var(--accent-blue); border-radius: 50%; }
+
+/* ── SECTION COMMON ── */
+section { padding: 100px 60px; }
+.section-label {
+  display: inline-block;
+  font-size: 12px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent-blue);
+  background: rgba(30,95,255,0.08);
+  padding: 6px 16px; border-radius: 50px;
+  margin-bottom: 20px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 800; line-height: 1.12;
+  letter-spacing: -1.5px;
+}
+.section-title em { font-style: italic; color: var(--accent-blue); }
+.section-sub {
+  font-size: 17px; color: var(--text-mid); line-height: 1.7;
+  max-width: 520px; margin-top: 16px;
+}
+
+/* ── TRUSTED SECTION ── */
+#trusted {
+  background: var(--off-white);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.trusted-text {}
+.trusted-highlight {
+  background: white; border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px;
+  margin-top: 32px; box-shadow: var(--shadow-soft);
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.highlight-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; flex-shrink: 0;
+}
+.trusted-visual { position: relative; }
+.trusted-img-card {
+  background: white; border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow-card);
+  padding: 40px; text-align: center;
+  aspect-ratio: 4/3;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 16px;
+  background: linear-gradient(145deg, #eef4ff 0%, #f0fff8 100%);
+  position: relative;
+}
+.trusted-img-card::before {
+  content: 'IOM+';
+  font-family: 'Bebas Neue', serif;
+  font-size: 100px; color: rgba(30,95,255,0.06);
+  position: absolute;
+}
+.trusted-badge-float {
+  position: absolute; top: 20px; right: 20px;
+  background: white; border-radius: var(--radius-sm);
+  padding: 12px 16px; box-shadow: var(--shadow-card);
+  text-align: center; font-size: 13px; font-weight: 600;
+  color: var(--accent-green);
+}
+
+/* ── CONTAINER SERIES ── */
+#series {
+  background: white;
+}
+.series-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 60px;
+}
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.series-card {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer; position: relative; overflow: hidden;
+}
+.series-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s;
+}
+.series-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: transparent; }
+.series-card:hover::before { transform: scaleX(1); }
+.series-img {
+  width: 100%; aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--light-gray), var(--mid-gray));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 64px; margin-bottom: 20px;
+  transition: transform 0.4s;
+}
+.series-card:hover .series-img { transform: scale(1.05) rotate(2deg); }
+.series-name { font-size: 17px; font-weight: 700; color: var(--text-dark); }
+.series-capacity { font-size: 13px; color: var(--text-light); margin-top: 6px; }
+.series-tag {
+  display: inline-block; margin-top: 16px;
+  padding: 5px 12px; border-radius: 50px;
+  font-size: 12px; font-weight: 600;
+  background: rgba(30,95,255,0.08); color: var(--accent-blue);
+}
+
+/* ── BUILT FOR BRANDS ── */
+#built {
+  background: linear-gradient(160deg, #f0f4ff 0%, #f8f0ff 50%, #f0fff8 100%);
+  position: relative; overflow: hidden;
+}
+#built::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(ellipse, rgba(30,95,255,0.05), transparent 70%);
+  pointer-events: none;
+}
+.built-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px; margin-top: 60px;
+}
+.built-card {
+  background: white; border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s;
+  border: 1px solid rgba(255,255,255,0.8);
+}
+.built-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+.built-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px; line-height: 1;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.built-title { font-size: 18px; font-weight: 700; margin-top: 8px; }
+.built-desc { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-top: 12px; }
+
+/* ── FIND RIGHT CONTAINER ── */
+#finder {
+  background: white;
+}
+.finder-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 60px;
+}
+.finder-card {
+  border-radius: var(--radius); padding: 36px 28px;
+  transition: all 0.4s; cursor: pointer;
+  position: relative; overflow: hidden;
+}
+.finder-card::after {
+  content: '→';
+  position: absolute; bottom: 20px; right: 24px;
+  font-size: 20px; font-weight: 700;
+  opacity: 0; transition: all 0.3s;
+  transform: translateX(-10px);
+}
+.finder-card:hover::after { opacity: 1; transform: translateX(0); }
+.finder-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+.fc-ice { background: linear-gradient(135deg, #dbeeff 0%, #c8f4ff 100%); color: #1a5a8a; }
+.fc-custom { background: linear-gradient(135deg, #ffe8f0 0%, #ffd0e8 100%); color: #8a1a5a; }
+.fc-pharma { background: linear-gradient(135deg, #e8ffd8 0%, #d0ffb8 100%); color: #2a6a1a; }
+.fc-dairy { background: linear-gradient(135deg, #fff8d8 0%, #fff0c0 100%); color: #6a5010; }
+.fc-bev { background: linear-gradient(135deg, #f0e8ff 0%, #e0d0ff 100%); color: #4a1a8a; }
+.fc-snack { background: linear-gradient(135deg, #ffe8d8 0%, #ffd0b8 100%); color: #8a3a1a; }
+.finder-emoji { font-size: 44px; margin-bottom: 16px; }
+.finder-title { font-size: 18px; font-weight: 700; }
+.finder-desc { font-size: 14px; opacity: 0.7; margin-top: 8px; line-height: 1.5; }
+.finder-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.finder-tag { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 50px; background: rgba(255,255,255,0.6); }
+
+/* ── WORKFLOW ── */
+#workflow {
+  background: var(--off-white);
+}
+.workflow-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin-top: 60px; position: relative;
+}
+.workflow-steps::before {
+  content: '';
+  position: absolute; top: 40px; left: 10%; right: 10%; height: 2px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+  z-index: 0;
+}
+.step-card {
+  text-align: center; padding: 20px;
+  position: relative; z-index: 1;
+  transition: transform 0.4s;
+}
+.step-card:hover { transform: translateY(-8px); }
+.step-circle {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: white; border: 3px solid var(--accent-blue);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 24px; font-size: 28px;
+  box-shadow: 0 8px 24px rgba(30,95,255,0.2);
+  transition: all 0.4s;
+}
+.step-card:hover .step-circle {
+  background: var(--accent-blue);
+  transform: scale(1.1);
+}
+.step-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px; color: var(--accent-blue);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.step-title { font-size: 16px; font-weight: 700; }
+.step-desc { font-size: 13px; color: var(--text-light); margin-top: 8px; line-height: 1.5; }
+
+/* ── WHY IML ── */
+#why {
+  background: white;
+}
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center; margin-top: 60px;
+}
+.why-items { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.why-item {
+  padding: 24px; border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  transition: all 0.4s;
+}
+.why-item:hover { border-color: var(--accent-blue); box-shadow: 0 8px 24px rgba(30,95,255,0.1); transform: translateY(-4px); }
+.why-icon { font-size: 32px; margin-bottom: 12px; }
+.why-title { font-size: 15px; font-weight: 700; color: var(--text-dark); }
+.why-desc { font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-top: 6px; }
+.why-visual {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(135deg, #eef4ff, #f0fff8);
+  aspect-ratio: 4/5;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 24px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+.why-visual-inner { text-align: center; }
+.why-big-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 120px; line-height: 1;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.why-big-label { font-size: 16px; font-weight: 600; color: var(--text-mid); }
+.why-float-tag {
+  position: absolute;
+  background: white; border-radius: var(--radius-sm);
+  padding: 12px 20px; box-shadow: var(--shadow-card);
+  font-size: 13px; font-weight: 600;
+}
+.wft-1 { top: 30px; left: -20px; color: var(--accent-blue); }
+.wft-2 { bottom: 60px; right: -20px; color: var(--accent-green); }
+
+/* ── MANUFACTURING ── */
+#manufacturing {
+  background: var(--off-white);
+}
+.mfg-grid {
+  display: grid; grid-template-columns: 1fr 1.4fr;
+  gap: 80px; align-items: center; margin-top: 60px;
+}
+.mfg-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.mfg-card {
+  background: white; border-radius: var(--radius-sm);
+  padding: 24px; box-shadow: var(--shadow-soft);
+  transition: all 0.4s; border-left: 4px solid var(--accent-blue);
+}
+.mfg-card:nth-child(2) { border-color: var(--accent-cyan); }
+.mfg-card:nth-child(3) { border-color: var(--accent-green); }
+.mfg-card:nth-child(4) { border-color: var(--accent-orange); }
+.mfg-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+.mfg-icon { font-size: 28px; margin-bottom: 12px; }
+.mfg-title { font-size: 15px; font-weight: 700; }
+.mfg-desc { font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-top: 6px; }
+.mfg-gallery {
+  display: grid; grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+.mfg-photo {
+  border-radius: var(--radius-sm); overflow: hidden;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #e8f4ff, #d0ecff);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 48px; box-shadow: var(--shadow-soft);
+  transition: all 0.4s;
+}
+.mfg-photo:hover { transform: scale(1.03); box-shadow: var(--shadow-card); }
+.mfg-photo.wide { grid-column: 1 / -1; aspect-ratio: 16/7; }
+
+/* ── TESTIMONIALS ── */
+#testimonials {
+  background: white;
+}
+.testi-header {
+  text-align: center; margin-bottom: 60px;
+}
+.testi-header .section-sub { max-width: 600px; margin: 16px auto 0; }
+.testi-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.testi-card {
+  background: var(--off-white); border-radius: var(--radius);
+  padding: 36px 28px; position: relative;
+  transition: all 0.4s; border: 1.5px solid transparent;
+}
+.testi-card::before {
+  content: '"';
+  position: absolute; top: 20px; right: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 80px; color: var(--accent-blue);
+  opacity: 0.12; line-height: 1;
+}
+.testi-card:hover { background: white; border-color: var(--border); box-shadow: var(--shadow-hover); transform: translateY(-6px); }
+.testi-stars { display: flex; gap: 4px; margin-bottom: 20px; }
+.star { color: #f59e0b; font-size: 16px; }
+.testi-text { font-size: 15px; line-height: 1.7; color: var(--text-mid); font-style: italic; }
+.testi-author { display: flex; align-items: center; gap: 14px; margin-top: 24px; }
+.author-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; color: white;
+}
+.av1 { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); }
+.av2 { background: linear-gradient(135deg, var(--accent-green), #00e5a8); }
+.av3 { background: linear-gradient(135deg, var(--accent-orange), #ff9a5c); }
+.author-name { font-size: 15px; font-weight: 700; }
+.author-role { font-size: 13px; color: var(--text-light); }
+
+/* ── FAQ ── */
+#faq {
+  background: var(--off-white);
+}
+.faq-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; margin-top: 60px; align-items: start;
+}
+.faq-list { display: flex; flex-direction: column; gap: 16px; }
+.faq-item {
+  background: white; border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  overflow: hidden; transition: all 0.3s;
+}
+.faq-item:hover { border-color: var(--accent-blue); }
+.faq-q {
+  padding: 20px 24px; font-size: 15px; font-weight: 600;
+  cursor: pointer; display: flex; justify-content: space-between;
+  align-items: center; gap: 16px;
+}
+.faq-icon { transition: transform 0.3s; color: var(--accent-blue); font-size: 20px; flex-shrink: 0; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  padding: 0 24px 20px;
+  font-size: 14px; color: var(--text-mid); line-height: 1.7;
+  display: none;
+}
+.faq-item.open .faq-a { display: block; }
+.faq-contact {
+  background: white; border-radius: var(--radius);
+  padding: 40px 36px; box-shadow: var(--shadow-card);
+  text-align: center;
+  background: linear-gradient(135deg, #eef4ff, #f0fff8);
+}
+.faq-contact-icon { font-size: 56px; margin-bottom: 20px; }
+.faq-contact h3 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; }
+.faq-contact p { color: var(--text-mid); margin-top: 12px; line-height: 1.6; }
+.faq-contact .btn-primary { margin-top: 28px; }
+
+/* ── CTA BANNER ── */
+#cta {
+  background: linear-gradient(135deg, #1e5fff 0%, #0040cc 50%, #003399 100%);
+  padding: 100px 60px;
+  text-align: center; position: relative; overflow: hidden;
+}
+#cta::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+  border-radius: 50%;
+}
+#cta::after {
+  content: '';
+  position: absolute; bottom: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,196,204,0.15), transparent 70%);
+  border-radius: 50%;
+}
+.cta-inner { position: relative; z-index: 1; }
+.cta-label {
+  display: inline-block; margin-bottom: 20px;
+  font-size: 12px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900; color: white; line-height: 1.1;
+  letter-spacing: -2px;
+}
+.cta-title em { font-style: italic; color: #00c4cc; }
+.cta-sub { font-size: 18px; color: rgba(255,255,255,0.7); margin-top: 20px; }
+.cta-btns { display: flex; gap: 16px; justify-content: center; margin-top: 40px; }
+.btn-white {
+  background: white; color: var(--accent-blue);
+  padding: 16px 40px; border-radius: 50px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.btn-white:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+.btn-outline-white {
+  border: 2px solid rgba(255,255,255,0.4);
+  color: white; padding: 16px 40px; border-radius: 50px;
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-3px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--off-white);
+  border-top: 1px solid var(--border);
+  padding: 60px 60px 30px;
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px; margin-bottom: 48px;
+}
+.footer-brand .nav-logo { font-size: 28px; }
+.footer-brand p { font-size: 14px; color: var(--text-light); line-height: 1.7; margin-top: 16px; max-width: 300px; }
+.footer-col h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; color: var(--text-dark); }
+.footer-col a { display: block; font-size: 14px; color: var(--text-light); text-decoration: none; margin-bottom: 10px; transition: color 0.3s; }
+.footer-col a:hover { color: var(--accent-blue); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bottom p { font-size: 13px; color: var(--text-light); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* delay classes */
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+.d5 { transition-delay: 0.5s; }
+.d6 { transition-delay: 0.6s; }
+
+/* ── CURSOR GLOW ── */
+.cursor-glow {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(30,95,255,0.04), transparent 70%);
+  border-radius: 50%; position: fixed;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">Taig<span>us</span></div>
+  <ul class="nav-links">
+    <li><a href="#series">Products</a></li>
+    <li><a href="#finder">Solutions</a></li>
+    <li><a href="#why">Why IML</a></li>
+    <li><a href="#manufacturing">Manufacturing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Get a Quote →</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Trusted by 500+ Global Brands</div>
+    <h1 class="hero-title">
+      Premium <em>IML Containers</em><br>
+      for <span class="outline-text">Modern</span> Brands
+    </h1>
+    <p class="hero-desc">Precision packaging born from a pharma-quality mindset. High-barrier, vibrant, sustainable IML containers engineered for food, dairy, pharma and beyond.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">10<span>M+</span></div>
+        <div class="stat-label">Containers Produced</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">120<span>+</span></div>
+        <div class="stat-label">SKU Variants</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">30<span>+</span></div>
+        <div class="stat-label">Countries Served</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#series" class="btn-primary">Explore Products →</a>
+      <a href="#cta" class="btn-secondary">📞 Talk to Us</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="container-float cf-1"><span class="cf-emoji">🍦</span></div>
+    <div class="container-float cf-2"><span class="cf-emoji">🧴</span></div>
+    <div class="container-float cf-3"><span class="cf-emoji">🫙</span></div>
+    <div class="container-float cf-4"><span class="cf-emoji">🧃</span></div>
+  </div>
+  <div class="hero-ribbon">
+    <div class="ribbon-track">
+      <div class="ribbon-item"><span class="ribbon-dot"></span> Ice Cream Containers</div>
+      <div class="ribbon-item"><span class="ribbon-dot"></span> Dairy Packaging</div>
+      <div class="ribbon-item"><span class="ribbon-dot"></span> Pharma Grade</div>
+      <div class="ribbon-item"><span class="ribbon-dot"></span> Custom Private Label</div>
+      <div class="ribbon-item"><span class="ribbon-dot"></span> Food Safe Certified</div>
+      <div class="ribbon-item"><span class="ribbon-dot"></span> High Barrier Technology</div>
+      <!-- repeat for seamless scroll -->
+      <div class="ribbon-item"><span class="ribbon-dot"></span> Ice Cream Containers</div>
+      <div class="ribbon-item"><span class="ribbon-dot"></span> Dairy Packaging</div>
+      <div class="ribbon-item"><span class="ribbon-dot"></span> Pharma Grade</div>
+      <div class="ribbon-item"><span class="ribbon-dot"></span> Custom Private Label</div>
+      <div class="ribbon-item"><span class="ribbon-dot"></span> Food Safe Certified</div>
+      <div class="ribbon-item"><span class="ribbon-dot"></span> High Barrier Technology</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUSTED ── -->
+<section id="trusted">
+  <div class="trusted-text reveal-left">
+    <span class="section-label">About Taigus</span>
+    <h2 class="section-title">Taigus: Trusted IML<br>Manufacturer for <em>Your Brands</em></h2>
+    <p class="section-sub">Precision packaging born from a pharma-quality mindset. We manufacture IML containers that protect, preserve and present your product at its finest.</p>
+    <div class="trusted-highlight">
+      <div class="highlight-icon">🏭</div>
+      <div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:6px;">State-of-the-Art Facility</div>
+        <div style="font-size:14px;color:var(--text-mid);line-height:1.6;">Our ISO-certified manufacturing plant runs 24/7 with full automation, ensuring consistent quality across every batch we produce.</div>
+      </div>
+    </div>
+  </div>
+  <div class="trusted-visual reveal-right">
+    <div class="trusted-img-card">
+      <div style="font-size:80px;">🏭</div>
+      <div style="font-size:18px;font-weight:700;color:var(--text-dark);">IML Manufacturing Excellence</div>
+      <div style="font-size:14px;color:var(--text-light);">ISO Certified • GMP Compliant • 24/7 Production</div>
+      <div class="trusted-badge-float">✅ Certified Facility</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTAINER SERIES ── -->
+<section id="series">
+  <div class="series-header">
+    <div>
+      <span class="section-label reveal">Our Products</span>
+      <h2 class="section-title reveal d1">Explore Our <em>IML Container</em> Series</h2>
+    </div>
+    <a href="#cta" class="btn-secondary reveal">View All →</a>
+  </div>
+  <div class="series-grid">
+    <div class="series-card reveal d1">
+      <div class="series-img">🍨</div>
+      <div class="series-name">Ice Cream Round</div>
+      <div class="series-capacity">250ml · 500ml · 1L · 2L · 4L</div>
+      <span class="series-tag">Bestseller</span>
+    </div>
+    <div class="series-card reveal d2">
+      <div class="series-img">🫙</div>
+      <div class="series-name">Square Tub Series</div>
+      <div class="series-capacity">250ml · 500ml · 1L</div>
+      <span class="series-tag">Dairy & Food</span>
+    </div>
+    <div class="series-card reveal d3">
+      <div class="series-img">🧴</div>
+      <div class="series-name">Pharma Container</div>
+      <div class="series-capacity">100ml · 200ml · 500ml</div>
+      <span class="series-tag">GMP Grade</span>
+    </div>
+    <div class="series-card reveal d4">
+      <div class="series-img">🥣</div>
+      <div class="series-name">Oval Tub Series</div>
+      <div class="series-capacity">400ml · 750ml · 1.5L</div>
+      <span class="series-tag">Custom Shape</span>
+    </div>
+    <div class="series-card reveal d5">
+      <div class="series-img">🪣</div>
+      <div class="series-name">Bucket Range</div>
+      <div class="series-capacity">2L · 4L · 6L · 10L</div>
+      <span class="series-tag">Bulk Pack</span>
+    </div>
+    <div class="series-card reveal d6">
+      <div class="series-img">📦</div>
+      <div class="series-name">Rectangular Box</div>
+      <div class="series-capacity">500ml · 1L · 2L</div>
+      <span class="series-tag">Private Label</span>
+    </div>
+    <div class="series-card reveal d1">
+      <div class="series-img">🧊</div>
+      <div class="series-name">Tamper-Evident</div>
+      <div class="series-capacity">100ml · 250ml · 500ml</div>
+      <span class="series-tag">Safety First</span>
+    </div>
+    <div class="series-card reveal d2">
+      <div class="series-img">✨</div>
+      <div class="series-name">Premium Frosted</div>
+      <div class="series-capacity">200ml · 500ml · 1L</div>
+      <span class="series-tag">Luxury Range</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── BUILT FOR BRANDS ── -->
+<section id="built">
+  <div style="text-align:center">
+    <span class="section-label reveal">Why Choose Us</span>
+    <h2 class="section-title reveal d1">Our Containers Are Built<br>for <em>Brand Excellence</em></h2>
+    <p class="section-sub reveal d2" style="margin:16px auto 0">Every detail engineered for performance, aesthetics, and compliance.</p>
+  </div>
+  <div class="built-grid">
+    <div class="built-card reveal d1">
+      <div class="built-num">01</div>
+      <div class="built-title">IML In-Mould Labelling</div>
+      <div class="built-desc">360° seamless label fused directly into the container during moulding — no peeling, no damage, fully waterproof and scratch-resistant decoration.</div>
+    </div>
+    <div class="built-card reveal d2">
+      <div class="built-num">02</div>
+      <div class="built-title">Consistent IML Moulding</div>
+      <div class="built-desc">Robotic automation ensures every container meets exact dimensional tolerances, so your filling lines run without downtime.</div>
+    </div>
+    <div class="built-card reveal d3">
+      <div class="built-num">03</div>
+      <div class="built-title">Tamper-Proof Technologies</div>
+      <div class="built-desc">Integrated tamper-evident features and high-barrier materials to protect product integrity from factory to consumer.</div>
+    </div>
+    <div class="built-card reveal d4">
+      <div class="built-num">04</div>
+      <div class="built-title">Custom IML Printing</div>
+      <div class="built-desc">Pantone-accurate printing with up to 7 colour process — your brand artwork reproduced with stunning photo-quality vibrancy.</div>
+    </div>
+    <div class="built-card reveal d5">
+      <div class="built-num">05</div>
+      <div class="built-title">Quality Every Batch</div>
+      <div class="built-desc">100% automated vision inspection, weight checks, and leak testing ensure zero defects leave our facility.</div>
+    </div>
+    <div class="built-card reveal d6">
+      <div class="built-num">06</div>
+      <div class="built-title">Scalable Volume</div>
+      <div class="built-desc">From 10,000 unit sampling runs to 10M+ monthly production — we scale seamlessly with your brand's growth trajectory.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINDER ── -->
+<section id="finder">
+  <div style="text-align:center">
+    <span class="section-label reveal">Solutions</span>
+    <h2 class="section-title reveal d1">Find the Right IML Container<br>for <em>Your Product</em></h2>
+    <p class="section-sub reveal d2" style="margin:16px auto 0">Tailored solutions for every industry and every shelf.</p>
+  </div>
+  <div class="finder-grid">
+    <div class="finder-card fc-ice reveal d1">
+      <div class="finder-emoji">🍦</div>
+      <div class="finder-title">Ice Cream & Frozen Desserts</div>
+      <div class="finder-desc">Freezer-safe, vibrant IML containers perfect for premium gelato, sorbet and ice cream brands.</div>
+      <div class="finder-tags">
+        <span class="finder-tag">Round</span>
+        <span class="finder-tag">Square Tub</span>
+        <span class="finder-tag">Bucket</span>
+      </div>
+    </div>
+    <div class="finder-card fc-custom reveal d2">
+      <div class="finder-emoji">🎨</div>
+      <div class="finder-title">Custom Build & Private Label</div>
+      <div class="finder-desc">Your logo, your colours, your shape. Full custom development from concept to production.</div>
+      <div class="finder-tags">
+        <span class="finder-tag">Any Shape</span>
+        <span class="finder-tag">Full Custom</span>
+        <span class="finder-tag">Private Label</span>
+      </div>
+    </div>
+    <div class="finder-card fc-pharma reveal d3">
+      <div class="finder-emoji">💊</div>
+      <div class="finder-title">Pharma & Healthcare</div>
+      <div class="finder-desc">GMP-compliant, high-barrier pharma containers that meet international regulatory requirements.</div>
+      <div class="finder-tags">
+        <span class="finder-tag">GMP Grade</span>
+        <span class="finder-tag">Tamper-Evident</span>
+        <span class="finder-tag">Sterile</span>
+      </div>
+    </div>
+    <div class="finder-card fc-dairy reveal d4">
+      <div class="finder-emoji">🥛</div>
+      <div class="finder-title">Dairy & Dairy Alternatives</div>
+      <div class="finder-desc">Yoghurt, butter, cream and plant-based alternatives — our containers keep them fresher for longer.</div>
+      <div class="finder-tags">
+        <span class="finder-tag">Oval Tub</span>
+        <span class="finder-tag">Round</span>
+        <span class="finder-tag">Rectangular</span>
+      </div>
+    </div>
+    <div class="finder-card fc-bev reveal d5">
+      <div class="finder-emoji">🧃</div>
+      <div class="finder-title">Beverages & Sauces</div>
+      <div class="finder-desc">Airtight, leak-proof containers for sauces, dips, juices and condiments that demand shelf presence.</div>
+      <div class="finder-tags">
+        <span class="finder-tag">Wide-Mouth</span>
+        <span class="finder-tag">Tamper-Seal</span>
+        <span class="finder-tag">100–1000ml</span>
+      </div>
+    </div>
+    <div class="finder-card fc-snack reveal d6">
+      <div class="finder-emoji">🥨</div>
+      <div class="finder-title">Snacks & Dry Foods</div>
+      <div class="finder-desc">Moisture-barrier containers for nuts, seeds, cereals, protein powders and specialty snack foods.</div>
+      <div class="finder-tags">
+        <span class="finder-tag">High Barrier</span>
+        <span class="finder-tag">Resealable</span>
+        <span class="finder-tag">Dry-Pack</span>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:48px" class="reveal">
+    <a href="#cta" class="btn-primary">Find My Container →</a>
+  </div>
+</section>
+
+<!-- ── WORKFLOW ── -->
+<section id="workflow">
+  <div style="text-align:center">
+    <span class="section-label reveal">Process</span>
+    <h2 class="section-title reveal d1">From Artwork to <em>Shelf-Ready</em><br>Container</h2>
+  </div>
+  <div class="workflow-steps">
+    <div class="step-card reveal d1">
+      <div class="step-circle">🎨</div>
+      <div class="step-num">Step 01</div>
+      <div class="step-title">Design & Artwork</div>
+      <div class="step-desc">Share your brand artwork or work with our in-house design team to create the perfect label.</div>
+    </div>
+    <div class="step-card reveal d2">
+      <div class="step-circle">🔬</div>
+      <div class="step-num">Step 02</div>
+      <div class="step-title">Trial Shoot</div>
+      <div class="step-desc">We produce a small sample run so you can approve quality, colours and fit before full production.</div>
+    </div>
+    <div class="step-card reveal d3">
+      <div class="step-circle">✅</div>
+      <div class="step-num">Step 03</div>
+      <div class="step-title">Good Check</div>
+      <div class="step-desc">Rigorous QC inspection with vision systems and physical testing. Every unit certified.</div>
+    </div>
+    <div class="step-card reveal d4">
+      <div class="step-circle">🚚</div>
+      <div class="step-num">Step 04</div>
+      <div class="step-title">Ship</div>
+      <div class="step-desc">Palletised, stretch-wrapped and shipped worldwide with real-time tracking to your facility.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY IML ── -->
+<section id="why">
+  <span class="section-label reveal">Technology</span>
+  <h2 class="section-title reveal d1">Why IML Outperforms<br>Traditional <em>Labelling</em></h2>
+  <div class="why-grid">
+    <div class="why-items">
+      <div class="why-item reveal d1">
+        <div class="why-icon">🎨</div>
+        <div class="why-title">360° Decoration</div>
+        <div class="why-desc">Full wrap printing impossible with paper or sleeve labels. Every angle of your container becomes a canvas.</div>
+      </div>
+      <div class="why-item reveal d2">
+        <div class="why-icon">💧</div>
+        <div class="why-title">Waterproof & Durable</div>
+        <div class="why-desc">IML labels don't peel, smudge or degrade in freezer, chiller or high-humidity environments.</div>
+      </div>
+      <div class="why-item reveal d3">
+        <div class="why-icon">♻️</div>
+        <div class="why-title">Fully Recyclable</div>
+        <div class="why-desc">No label to remove — container and label are same material, making recycling clean and simple.</div>
+      </div>
+      <div class="why-item reveal d4">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Faster Production</div>
+        <div class="why-desc">IML eliminates separate labelling steps, reducing per-unit cost and production cycle time significantly.</div>
+      </div>
+      <div class="why-item reveal d5">
+        <div class="why-icon">🔒</div>
+        <div class="why-title">Anti-Counterfeit</div>
+        <div class="why-desc">Impossible to re-label or copy, protecting your brand from counterfeit products in the market.</div>
+      </div>
+      <div class="why-item reveal d6">
+        <div class="why-icon">✨</div>
+        <div class="why-title">Premium Shelf Appeal</div>
+        <div class="why-desc">Photo-realistic print quality that commands premium shelf positioning and increases consumer trust.</div>
+      </div>
+    </div>
+    <div class="why-visual reveal-right">
+      <div class="why-float-tag wft-1">🏆 #1 IML Manufacturer</div>
+      <div class="why-visual-inner">
+        <div class="why-big-num">IML</div>
+        <div class="why-big-label">In-Mould Label Technology</div>
+        <div style="margin-top:24px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <div style="background:white;border-radius:12px;padding:12px 20px;font-size:13px;font-weight:600;box-shadow:var(--shadow-soft)">✅ ISO Certified</div>
+          <div style="background:white;border-radius:12px;padding:12px 20px;font-size:13px;font-weight:600;box-shadow:var(--shadow-soft)">✅ GMP Compliant</div>
+          <div style="background:white;border-radius:12px;padding:12px 20px;font-size:13px;font-weight:600;box-shadow:var(--shadow-soft)">✅ Food Safe</div>
+          <div style="background:white;border-radius:12px;padding:12px 20px;font-size:13px;font-weight:600;box-shadow:var(--shadow-soft)">✅ BPA Free</div>
+        </div>
+      </div>
+      <div class="why-float-tag wft-2">🌱 Eco Friendly</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MANUFACTURING ── -->
+<section id="manufacturing">
+  <div class="mfg-grid">
+    <div>
+      <span class="section-label reveal">Facility</span>
+      <h2 class="section-title reveal d1">Advanced IML Manufacturing<br><em>You Can Trust</em></h2>
+      <p class="section-sub reveal d2">Our state-of-the-art plant combines robotic precision with human expertise to deliver consistent quality at scale.</p>
+      <div class="mfg-cards" style="margin-top:40px">
+        <div class="mfg-card reveal d1">
+          <div class="mfg-icon">🤖</div>
+          <div class="mfg-title">Robotic Automation</div>
+          <div class="mfg-desc">Fully automated IML insertion and inspection for zero-defect consistency.</div>
+        </div>
+        <div class="mfg-card reveal d2">
+          <div class="mfg-icon">🔬</div>
+          <div class="mfg-title">Lab Testing</div>
+          <div class="mfg-desc">In-house testing lab validates barrier, seal and food-safety on every batch.</div>
+        </div>
+        <div class="mfg-card reveal d3">
+          <div class="mfg-icon">🌡️</div>
+          <div class="mfg-title">Climate Controlled</div>
+          <div class="mfg-desc">Controlled production environment ensures material stability and dimensional accuracy.</div>
+        </div>
+        <div class="mfg-card reveal d4">
+          <div class="mfg-icon">📊</div>
+          <div class="mfg-title">Real-time Monitoring</div>
+          <div class="mfg-desc">Digital production dashboards track quality metrics across all lines, 24/7.</div>
+        </div>
+      </div>
+      <div style="margin-top:32px" class="reveal">
+        <a href="#cta" class="btn-primary">Tour Our Facility →</a>
+      </div>
+    </div>
+    <div class="mfg-gallery reveal-right">
+      <div class="mfg-photo wide">🏭</div>
+      <div class="mfg-photo">⚙️</div>
+      <div class="mfg-photo">🔬</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="testi-header">
+    <span class="section-label reveal">Clients</span>
+    <h2 class="section-title reveal d1">What Our <em>Clients</em> Say</h2>
+    <p class="section-sub reveal d2">Brands across the globe trust Taigus for their most critical packaging needs.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal d1">
+      <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+      <p class="testi-text">Taigus transformed our ice cream range. The print quality is stunning — our containers stand out on every shelf. Production is flawless and lead times have been incredible.</p>
+      <div class="testi-author">
+        <div class="author-avatar av1">A</div>
+        <div>
+          <div class="author-name">Arjun Mehta</div>
+          <div class="author-role">Head of Packaging, Creamery Brands</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal d2">
+      <p class="testi-text">Switching to Taigus IML containers completely eliminated our label rejection issues. The quality consistency batch after batch has been exceptional — zero complaints from our fillers.</p>
+      <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+      <div class="testi-author">
+        <div class="author-avatar av2">S</div>
+        <div>
+          <div class="author-name">Sophie Laurent</div>
+          <div class="author-role">Operations Director, DairyFresh Europe</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal d3">
+      <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+      <p class="testi-text">We needed GMP-compliant pharma containers at scale. Taigus delivered on every specification, on time, and their team supported us through the entire regulatory approval process.</p>
+      <div class="testi-author">
+        <div class="author-avatar av3">R</div>
+        <div>
+          <div class="author-name">Rohit Sharma</div>
+          <div class="author-role">VP Supply Chain, MediPack India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <span class="section-label reveal">FAQ</span>
+  <h2 class="section-title reveal d1">Frequently Asked Questions</h2>
+  <div class="faq-grid">
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <div class="faq-q">What is In-Mould Labelling (IML)? <span class="faq-icon">+</span></div>
+        <div class="faq-a">IML is a packaging technology where a pre-printed label is placed inside the mould before plastic injection. The label fuses with the container during moulding, creating a permanent, fully integrated decoration that is waterproof, durable and recyclable.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What are your minimum order quantities? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Our standard MOQ starts at 10,000 units per SKU. For trial or sampling orders, we can accommodate smaller runs — speak to our team to discuss your requirements.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you manufacture containers with quality design? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Absolutely. Our in-house design and prepress team works with your brand guidelines to prepare print-ready artwork. We also provide 3D mockups for approval before any production starts.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you manufacture to custom specifications? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes, we offer full custom tooling and mould development. From shape to size to closure type, our engineering team will design a container that fits your exact product and filling line requirements.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are your containers food-safe and certified? <span class="faq-icon">+</span></div>
+        <div class="faq-a">All our containers are manufactured using food-grade, BPA-free polypropylene and comply with FDA, EU food contact regulations, and ISO standards. Full material certification available on request.</div>
+      </div>
+    </div>
+    <div class="faq-contact reveal-right">
+      <div class="faq-contact-icon">💬</div>
+      <h3>Still Have Questions?</h3>
+      <p>Our packaging experts are ready to answer any technical or commercial questions. Get a personalised consultation and quote within 24 hours.</p>
+      <a href="#cta" class="btn-primary">Talk to an Expert →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="cta-label reveal">Get Started Today</div>
+    <h2 class="cta-title reveal d1">Ready to Source Your<br><em>IML Containers?</em></h2>
+    <p class="cta-sub reveal d2">Join 500+ brands who trust Taigus for their packaging. Request a sample or quote in minutes.</p>
+    <div class="cta-btns reveal d3">
+      <a href="mailto:hello@taigus.com" class="btn-white">📦 Request Samples</a>
+      <a href="tel:+911234567890" class="btn-outline-white">📞 Call Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">Taig<span>us</span></div>
+      <p>Premium IML container manufacturer for modern brands worldwide. Precision, quality and scale — delivered.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Ice Cream Containers</a>
+      <a href="#">Dairy Containers</a>
+      <a href="#">Pharma Containers</a>
+      <a href="#">Custom Shapes</a>
+      <a href="#">Private Label</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Taigus</a>
+      <a href="#">Manufacturing</a>
+      <a href="#">Certifications</a>
+      <a href="#">Sustainability</a>
+      <a href="#">Careers</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="#">Get a Quote</a>
+      <a href="#">Request Sample</a>
+      <a href="#">Technical Support</a>
+      <a href="#">Partner With Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Taigus IML Solutions. All rights reserved.</p>
+    <p>Privacy Policy · Terms of Use</p>
+  </div>
+</footer>
+
+<script>
+// Cursor glow
+const glow = document.getElementById('cursorGlow');
+document.addEventListener('mousemove', e => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Nav scroll effect
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.08)';
+  } else {
+    nav.style.boxShadow = 'none';
+  }
+});
+
+// Counter animation for stats
+const statNums = document.querySelectorAll('.stat-num');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const text = el.textContent;
+      const num = parseInt(text);
+      if (!isNaN(num)) {
+        let start = 0;
+        const duration = 1500;
+        const step = duration / num;
+        const suffix = text.replace(/[0-9]/g, '');
+        const timer = setInterval(() => {
+          start += Math.ceil(num / 60);
+          if (start >= num) { start = num; clearInterval(timer); }
+          el.innerHTML = start + suffix;
+        }, step > 50 ? 50 : step);
+      }
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+statNums.forEach(el => counterObserver.observe(el));
+</script>
+</body>
+</html>
